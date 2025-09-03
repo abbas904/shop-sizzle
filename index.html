@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Performance optimizations -->
+  <meta name="theme-color" content="#7c3aed">
+  <meta name="description" content="ShopSizzle - Your ultimate online shopping destination with premium products and exceptional service">
+  <meta name="keywords" content="online shopping, e-commerce, products, deals, ShopSizzle">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/src/index.css" as="style">
+  <link rel="preload" href="/src/main.jsx" as="script">
+  
+  <!-- DNS prefetch for external resources -->
+  <link rel="dns-prefetch" href="//dummyjson.com">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/cart-large-minimalistic-svgrepo-com.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/cart-large-minimalistic-svgrepo-com.svg" />
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/src/index.css">
+
+  <title>ShopSizzle - Premium Online Shopping</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+  
+  <!-- Performance monitoring -->
+  <script>
+    // Basic performance monitoring
+    window.addEventListener('load', function() {
+      const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+      console.log('Page load time:', loadTime + 'ms');
+    });
+  </script>
+</body>
+</html>

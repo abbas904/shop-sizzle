@@ -1,0 +1,165 @@
+{
+  "navbar": {
+    "home": "Home",
+    "products": "Products",
+    "about": "About Us",
+    "contact": "Contact Us",
+    "wishlist": "Wishlist",
+    "cart": "Cart"
+  },
+  "welcome": "Welcome to",
+  "shopName": "ShopSizzle",
+  "description": "Everything you need in one place – authentic products at great prices!",
+  "shopNow": "Shop Now",
+  "features": {
+    "title": "Our Features",
+    "premiumCoffee": "Premium Coffee",
+    "premiumCoffeeDesc": "Get the best coffee from the finest farms around the world.",
+    "easyShopping": "Easy Shopping",
+    "easyShoppingDesc": "A smooth and simple shopping experience with secure payment.",
+    "fastDelivery": "Fast Delivery",
+    "fastDeliveryDesc": "Fast delivery to your door while keeping your coffee fresh.",
+    "securePayment": "Secure Payment",
+    "securePaymentDesc": "Your payments are safe and encrypted with the latest technologies."
+  },
+  "intro": {
+    "title": "Website Advantages",
+    "description": "Discover why ShopSizzle is the perfect choice for online shopping",
+    "features": [
+      "Fast and reliable service for all users.",
+      "Secure payment system and data protection.",
+      "User-friendly interface with intuitive navigation.",
+      "Exclusive content and updates for members."
+    ]
+  },
+  "topProducts": {
+    "title": "Our Products",
+    "description": "Explore our latest featured products",
+    "searchPlaceholder": "Search products...",
+    "addToCart": "Add to Cart",
+    "wishlist": "Wishlist",
+    "wishlisted": "Wishlisted",
+    "wishlistAdded": "Added to Wishlist",
+    "wishlistRemoved": "Removed from Wishlist",
+    "sort": {
+      "default": "Default Sorting",
+      "priceAsc": "Price: Low to High",
+      "priceDesc": "Price: High to Low",
+      "ratingDesc": "Sort by Rating"
+    }
+  },
+  "stats": {
+    "title": "Our Achievements 📊",
+    "happyCustomers": "Happy Customers",
+    "availableProducts": "Available Products",
+    "ordersCompleted": "Orders Completed",
+    "awards": "Awards",
+    "workingHours": "Working Hours",
+    "workingHoursTime": "Sat - Thu: 9 AM - 9 PM",
+    "fastDelivery": "Fast Delivery",
+    "fastDeliveryTime": "Delivery within 24 hours",
+    "contactUs": "Contact Us",
+    "phone": "+966 123 456 789"
+  },
+  "categories": {
+    "title": "Discover Our Categories 🛍️",
+    "description": "Browse all categories: Electronics, Fashion, Home Decor, and more!",
+    "cta": "View All Categories ➝",
+    "groceries": "Groceries",
+    "perfumes": "Perfumes",
+    "homeDecor": "Home Decor",
+    "womensBags": "Women's Bags",
+    "accessories": "Accessories"
+  },
+  "testimonials": {
+    "title": "What Our Customers Say",
+    "description": "Listen directly to our satisfied customers and see why they trust us.",
+    "quotes": [
+      {
+        "quote": "Their attention to detail and innovative features completely changed how we work. Exactly what we were looking for.",
+        "name": "Sarah Chen",
+        "designation": "Product Manager at TechFlow"
+      },
+      {
+        "quote": "The implementation process was smooth and results exceeded expectations. Platform flexibility is amazing.",
+        "name": "Michael Rodriguez",
+        "designation": "CTO at InnovateSphere"
+      },
+      {
+        "quote": "This solution greatly improved our team's productivity. The intuitive interface makes complex tasks simple.",
+        "name": "Emily Watson",
+        "designation": "Operations Director at CloudScale"
+      }
+    ]
+  },
+  "pagination": {
+    "prev": "Previous",
+    "next": "Next"
+  },
+  "about": {
+    "banner": {
+      "title": "About Us",
+      "subtitle": "Discover more about ShopSizzle, our vision, and our mission to provide the best products."
+    },
+    "values": {
+      "title": "Our Values",
+      "description": "At ShopSizzle, we follow strong core values that guide every decision and action, ensuring the best service and products for our customers.",
+      "customerFirst": "Customer First",
+      "customerFirstDesc": "We prioritize our customers' needs and satisfaction above all else.",
+      "excellence": "Excellence",
+      "excellenceDesc": "We strive for excellence in everything we do.",
+      "innovation": "Innovation",
+      "innovationDesc": "We continuously innovate to improve our services.",
+      "integrity": "Integrity",
+      "integrityDesc": "We conduct our business with honesty and transparency."
+    },
+    "advantages": {
+      "title": "Why ShopSizzle",
+      "description": "ShopSizzle is more than just an online store. We aim to provide a seamless shopping experience, top-quality products, and exceptional support to our valued customers.",
+      "adv1": "Fast and reliable service for all users.",
+      "adv2": "Secure payment system and data protection.",
+      "adv3": "User-friendly interface with intuitive navigation.",
+      "adv4": "Exclusive content and updates for members."
+    },
+    "brands": {
+      "title": "Our Brands",
+      "subtitle": "We partner with the best brands to bring you quality products."
+    },
+    "team": {
+      "title": "Our Team",
+      "subtitle": "Meet the amazing people behind ShopSizzle, who make our products and services exceptional."
+    }
+  },
+  "contact": {
+    "banner": {
+      "title": "Contact Us",
+      "subtitle": "Our support team is ready to assist you with any inquiries or issues. Reach out and we will respond promptly.",
+      "cta": "Contact Us Now"
+    },
+    "form": {
+      "title": "Send Us a Message",
+      "name": "Full Name",
+      "email": "Email Address",
+      "message": "Your Message",
+      "submit": "Send Message"
+    },
+    "info": {
+      "email": { "title": "Email", "value": "support@shopsizzle.com" },
+      "phone": { "title": "Phone", "value": "+966 555 123 456" },
+      "location": { "title": "Location", "value": "Riyadh, Saudi Arabia" }
+    },
+    "map": {
+      "title": "Find Us on the Map",
+      "subtitle": "Come visit our office or get in touch anytime — our team is always ready to assist you.",
+      "embedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.27990880396!2d-74.25987368756096!3d40.69767006337205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c250b589dfdfc7%3A0x2b62f5bb1a9c2c85!2sNew%20York%2C%20United%20States!5e0!3m2!1sen!2sus!4v1692889478236!5m2!1sen!2sus"
+    },
+    "faqs": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Here are some of the most common questions our customers ask.",
+      "trackOrder": { "question": "How can I track my order?", "answer": "You can track your order through your account dashboard or using the tracking number sent to your email." },
+      "returnPolicy": { "question": "What is your return policy?", "answer": "We offer a 30-day return policy for most items. Products must be unused and in original packaging." },
+      "internationalShipping": { "question": "Do you ship internationally?", "answer": "Yes, we ship to most countries worldwide. Shipping costs and delivery times vary by location." },
+      "cancelOrder": { "question": "How can I change or cancel my order?", "answer": "You can modify or cancel your order within 1 hour of placing it by contacting our customer service." }
+    }
+  }
+}
