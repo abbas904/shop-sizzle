@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 import demoImg from "../../assets/e-commerce assets/hero sec/us.png";
-import demoVideo from "../../assets/e-commerce assets/About us/video.mp4";
+import demoVideo from "../../assets/e-commerce assets/about us/video.mp4";
 import { useTranslation } from "react-i18next";
 
 export default function IntroSection() {

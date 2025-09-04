@@ -2,17 +2,17 @@
 import React, { useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import bgImage from "../assets/e-commerce assets/contact us/laptop.jpg";
-import demoImg from "../assets/e-commerce assets/About us/we1.jpg";
-import demoVideo from "../assets/e-commerce assets/About us/video2.mp4";
+import demoImg from "../assets/e-commerce assets/about us/we1.jpg";
+import demoVideo from "../assets/e-commerce assets/about us/video2.mp4";
 import { motion } from "framer-motion";
 import { CheckCircle, Heart, User, Star, Zap, ShieldCheck } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
-import mem1 from "../assets/e-commerce assets/About us/our team/team-1.jpg";
-import mem2 from "../assets/e-commerce assets/About us/our team/team-2.jpg";
-import mem3 from "../assets/e-commerce assets/About us/our team/team-3.jpg";
-import mem4 from "../assets/e-commerce assets/About us/our team/team-4.jpg";
+import mem1 from "../assets/e-commerce assets/about us/our team/team-1.jpg";
+import mem2 from "../assets/e-commerce assets/about us/our team/team-2.jpg";
+import mem3 from "../assets/e-commerce assets/about us/our team/team-3.jpg";
+import mem4 from "../assets/e-commerce assets/about us/our team/team-4.jpg";
 
 export default function About() {
   const { t, i18n } = useTranslation();

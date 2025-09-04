@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
 import { UserGroupIcon, CubeIcon, CheckCircleIcon, TrophyIcon, ClockIcon, TruckIcon, PhoneIcon } from "@heroicons/react/24/solid";
-import heroImage from "../../assets/e-commerce assets/hero sec/heroImage-2.png";
+import heroImage from "../../assets/e-commerce assets/hero sec/HeroImage-2.png";
 import { SparklesIcon } from "@heroicons/react/24/solid";
 import { useTranslation } from "react-i18next";
 
