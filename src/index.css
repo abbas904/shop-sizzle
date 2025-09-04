@@ -107,6 +107,37 @@
   .animate-scale-in {
     animation: scaleIn 0.4s ease-out;
   }
+  
+  /* منع حركة الصفحة عند ظهور الأقسام */
+  .prevent-layout-shift {
+    contain: layout style paint;
+  }
+  
+  /* تحسين الأداء للرسوم المتحركة */
+  .motion-safe {
+    will-change: transform, opacity;
+  }
+  
+  /* تحسين السلايدر */
+  .brands-swiper {
+    overflow: hidden;
+  }
+  
+  .brands-swiper .swiper-slide {
+    height: auto;
+  }
+  
+  /* تحسين التخطيط */
+  .prevent-layout-shift {
+    contain: layout style paint;
+    transform: translateZ(0);
+  }
+  
+  /* تحسين الصور */
+  .optimized-image {
+    content-visibility: auto;
+    contain-intrinsic-size: 300px;
+  }
 }
 
 @keyframes fadeIn {

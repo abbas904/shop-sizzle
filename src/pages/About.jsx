@@ -62,25 +62,25 @@ export default function About() {
       </motion.section>
 
       {/* ===== Our Values ===== */}
-      <motion.section className="py-8 sm:py-12 lg:py-16 mt-20" initial="hidden" whileInView="visible" variants={listVariants} viewport={{ once: true }}>
+      <motion.section className="py-8 sm:py-12 lg:py-16 mt-12 sm:mt-16 lg:mt-20 prevent-layout-shift" initial="hidden" whileInView="visible" variants={listVariants} viewport={{ once: true, margin: "-100px" }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div className="text-center mb-12 sm:mb-16 px-4" variants={itemVariants}>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4 tracking-wide">{t("about.values.title")}</h2>
-            <p className="text-gray-600 max-w-3xl mx-auto text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">{t("about.values.description")}</p>
+          <motion.div className="text-center mb-8 sm:mb-12 lg:mb-16 px-4" variants={itemVariants}>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-gray-900 mb-3 sm:mb-4 tracking-wide leading-tight">{t("about.values.title")}</h2>
+            <p className="text-gray-600 max-w-3xl mx-auto text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed px-2">{t("about.values.description")}</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {[{ titleKey: "about.values.customerFirst", descKey: "about.values.customerFirstDesc", color: "blue", icon: <User className="w-7 h-7" /> },
               { titleKey: "about.values.excellence", descKey: "about.values.excellenceDesc", color: "green", icon: <Star className="w-7 h-7" /> },
               { titleKey: "about.values.innovation", descKey: "about.values.innovationDesc", color: "yellow", icon: <Zap className="w-7 h-7" /> },
               { titleKey: "about.values.integrity", descKey: "about.values.integrityDesc", color: "purple", icon: <ShieldCheck className="w-7 h-7" /> }
             ].map((value, index) => (
-              <motion.div key={index} className="bg-white p-4 sm:p-6 rounded-md shadow-md text-center hover:shadow-lg transition duration-300 ease-in-out" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }}>
+              <motion.div key={index} className="bg-white p-4 sm:p-6 rounded-md shadow-md text-center hover:shadow-lg transition duration-300 ease-in-out" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }} viewport={{ once: true, margin: "-50px" }}>
                 <div className={`p-3 rounded-full w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center mb-3 sm:mb-4 mx-auto ${value.color === "blue" ? "bg-blue-100" : value.color === "green" ? "bg-green-100" : value.color === "yellow" ? "bg-yellow-100" : "bg-purple-100"}`}>
                   <div className="scale-75 sm:scale-100">{value.icon}</div>
                 </div>
-                <h3 className="text-lg sm:text-xl font-semibold mb-2">{t(value.titleKey)}</h3>
-                <p className="text-gray-600 text-sm sm:text-base">{t(value.descKey)}</p>
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 leading-tight">{t(value.titleKey)}</h3>
+                <p className="text-gray-600 text-xs sm:text-sm md:text-base leading-relaxed">{t(value.descKey)}</p>
               </motion.div>
             ))}
           </div>
@@ -88,34 +88,34 @@ export default function About() {
       </motion.section>
 
       {/* ===== Website Advantages ===== */}
-      <motion.section className="py-6 mt-24 mb-10 md:py-20 bg-violet-50 relative overflow-hidden" initial="hidden" whileInView="visible" variants={listVariants} viewport={{ once: true }}>
-        <div className="text-center mb-12 md:mb-16 px-4">
-          <motion.h2 className="text-2xl md:text-4xl font-extrabold bg-gradient-to-r from-violet-600 to-pink-500 bg-clip-text text-transparent" variants={itemVariants}>{t("about.advantages.title")}</motion.h2>
-          <motion.p className="text-black mt-4 md:mt-6 text-base md:text-lg max-w-2xl mx-auto text-center leading-relaxed" variants={itemVariants}>
+      <motion.section className="py-6 sm:py-12 lg:py-20 mt-12 sm:mt-16 lg:mt-24 mb-8 sm:mb-12 lg:mb-16 bg-violet-50 relative overflow-hidden prevent-layout-shift" initial="hidden" whileInView="visible" variants={listVariants} viewport={{ once: true, margin: "-100px" }}>
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16 px-4 sm:px-6">
+          <motion.h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold bg-gradient-to-r from-violet-600 to-pink-500 bg-clip-text text-transparent leading-tight" variants={itemVariants}>{t("about.advantages.title")}</motion.h2>
+          <motion.p className="text-black mt-3 sm:mt-4 md:mt-6 text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto text-center leading-relaxed px-2" variants={itemVariants}>
             {t("about.advantages.description")}
             <motion.span className="inline-block ml-1" initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: [0.9, 1.2, 1], opacity: 1 }} transition={{ duration: 1.4, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }}>
-              <Heart className="w-5 h-5 text-pink-500" />
+              <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-pink-500" />
             </motion.span>
           </motion.p>
         </div>
 
-        <div className="container mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <motion.div initial={{ opacity: 0, scale: 0.9, y: 40 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} className="flex justify-center">
-            <motion.img src={demoImg} alt="Website Preview" className="rounded-2xl bg-white shadow-2xl object-contain w-full sm:w-4/5 lg:w-full max-h-[700px]" initial={{ scaleX: -1 }} animate={{ y: [0, -20, 0], scaleX: -1 }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+          <motion.div initial={{ opacity: 0, scale: 0.9, y: 40 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true, margin: "-100px" }} className="flex justify-center order-2 lg:order-1">
+            <motion.img src={demoImg} alt="Website Preview" className="rounded-2xl bg-white shadow-2xl object-contain w-full sm:w-4/5 lg:w-full max-h-[300px] sm:max-h-[400px] md:max-h-[500px] lg:max-h-[600px] xl:max-h-[700px]" initial={{ scaleX: -1 }} animate={{ y: [0, -20, 0], scaleX: -1 }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} />
           </motion.div>
 
-          <motion.div className="flex flex-col gap-8">
-            <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.9, ease: "easeOut" }} className="rounded-xl overflow-hidden shadow-lg border-2 border-violet-200 hover:scale-105 transition-transform duration-500">
-              <video src={demoVideo} autoPlay loop muted playsInline className="w-full h-[200px] sm:h-[280px] md:h-[320px] object-cover" />
+          <motion.div className="flex flex-col gap-6 sm:gap-8 order-1 lg:order-2">
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.9, ease: "easeOut" }} viewport={{ once: true, margin: "-50px" }} className="rounded-xl overflow-hidden shadow-lg border-2 border-violet-200 hover:scale-105 transition-transform duration-500">
+              <video src={demoVideo} autoPlay loop muted playsInline className="w-full h-[180px] sm:h-[220px] md:h-[280px] lg:h-[320px] object-cover" />
             </motion.div>
 
-            <motion.ul className="space-y-4 bg-white rounded-xl shadow-md p-4 sm:p-6" variants={listVariants}>
+            <motion.ul className="space-y-3 sm:space-y-4 bg-white rounded-xl shadow-md p-4 sm:p-6" variants={listVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}>
               {["adv1", "adv2", "adv3", "adv4"].map((key, i) => (
                 <motion.li key={i} variants={itemVariants} className="flex items-center gap-3 text-gray-700 text-sm sm:text-base">
-                  <div className="p-1 rounded-full bg-green-100">
-                    <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
+                  <div className="p-1 rounded-full bg-green-100 flex-shrink-0">
+                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-green-600" />
                   </div>
-                  <span>{t(`about.advantages.${key}`)}</span>
+                  <span className="leading-relaxed">{t(`about.advantages.${key}`)}</span>
                 </motion.li>
               ))}
             </motion.ul>
@@ -124,51 +124,72 @@ export default function About() {
       </motion.section>
 
       {/* ===== Brands ===== */}
-      <motion.section className="py-16 mt-20" initial="hidden" whileInView="visible" variants={listVariants} viewport={{ once: true }}>
-        <div className="container mx-auto px-6 py-6 text-center">
-          <motion.div className="text-center mb-8">
-            <motion.h2 className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-violet-600 to-pink-500 bg-clip-text text-transparent relative inline-block" initial={{ opacity: 0, y: 30, scale: 0.9 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.8, ease: "easeOut" }} viewport={{ once: true }}>
+      <motion.section className="py-12 sm:py-16 lg:py-20 mt-12 sm:mt-16 lg:mt-20 prevent-layout-shift" initial="hidden" whileInView="visible" variants={listVariants} viewport={{ once: true, margin: "-100px" }}>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center">
+          <motion.div className="text-center mb-8 sm:mb-12">
+            <motion.h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-violet-600 to-pink-500 bg-clip-text text-transparent relative inline-block leading-tight" initial={{ opacity: 0, y: 30, scale: 0.9 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.8, ease: "easeOut" }} viewport={{ once: true, margin: "-50px" }}>
               {t("about.brands.title")}
             </motion.h2>
-            <motion.p className="text-gray-600 max-w-2xl mx-auto mt-4 text-base md:text-lg">{t("about.brands.subtitle")}</motion.p>
+            <motion.p className="text-gray-600 max-w-2xl mx-auto mt-3 sm:mt-4 text-sm sm:text-base md:text-lg lg:text-xl px-4">{t("about.brands.subtitle")}</motion.p>
           </motion.div>
 
-          <Swiper
-            ref={swiperRef}
-            modules={[Autoplay]}
-            spaceBetween={50}
-            slidesPerView={4}
-            loop={true}
-            autoplay={{ delay: 1000, disableOnInteraction: false }}
-            breakpoints={{ 640: { slidesPerView: 2 }, 768: { slidesPerView: 3 }, 1024: { slidesPerView: 4 } }}
-          >
-            {brands.map((brand, index) => (
-              <SwiperSlide key={index}>
-                <motion.div className="flex justify-center items-center p-4 bg-white rounded-lg shadow-lg border-2 border-violet-50 hover:shadow-xl transition-all duration-300" initial={{ opacity: 0.8, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: index * 0.2 }} viewport={{ once: true }}>
-                  <img src={brand.src} alt={brand.alt} className="w-full h-40 object-contain" />
-                </motion.div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          <div className="relative">
+            <Swiper
+              ref={swiperRef}
+              modules={[Autoplay]}
+              spaceBetween={20}
+              slidesPerView={1}
+              loop={true}
+              autoplay={{ delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+              breakpoints={{ 
+                480: { slidesPerView: 1.5, spaceBetween: 20 },
+                640: { slidesPerView: 2, spaceBetween: 30 }, 
+                768: { slidesPerView: 3, spaceBetween: 30 }, 
+                1024: { slidesPerView: 4, spaceBetween: 40 },
+                1280: { slidesPerView: 5, spaceBetween: 40 }
+              }}
+              className="brands-swiper"
+            >
+              {brands.map((brand, index) => (
+                <SwiperSlide key={index}>
+                  <motion.div 
+                    className="flex justify-center items-center p-3 sm:p-4 bg-white rounded-lg shadow-lg border-2 border-violet-50 hover:shadow-xl transition-all duration-300 h-32 sm:h-36 md:h-40" 
+                    initial={{ opacity: 0.8, y: 20 }} 
+                    whileInView={{ opacity: 1, y: 0 }} 
+                    transition={{ duration: 0.4, delay: index * 0.1 }} 
+                    viewport={{ once: true, margin: "-50px" }}
+                  >
+                    <img 
+                      src={brand.src} 
+                      alt={brand.alt} 
+                      className="w-full h-full object-contain max-h-24 sm:max-h-28 md:max-h-32" 
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </motion.div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
       </motion.section>
 
       {/* ===== Our Team ===== */}
-      <motion.section className="py-16 mt-20 mb-20" initial="hidden" whileInView="visible" variants={listVariants} viewport={{ once: true }}>
-        <motion.div className="text-center mb-16 px-4" variants={itemVariants}>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-wide">{t("about.team.title")}</h2>
-          <p className="text-gray-600 max-w-3xl mx-auto text-base sm:text-lg md:text-xl leading-relaxed">{t("about.team.subtitle")}</p>
+      <motion.section className="py-12 sm:py-16 lg:py-20 mt-12 sm:mt-16 lg:mt-20 mb-12 sm:mb-16 lg:mb-20 prevent-layout-shift" initial="hidden" whileInView="visible" variants={listVariants} viewport={{ once: true, margin: "-100px" }}>
+        <motion.div className="text-center mb-8 sm:mb-12 lg:mb-16 px-4 sm:px-6" variants={itemVariants}>
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-gray-900 mb-3 sm:mb-4 tracking-wide leading-tight">{t("about.team.title")}</h2>
+          <p className="text-gray-600 max-w-3xl mx-auto text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed px-2">{t("about.team.subtitle")}</p>
         </motion.div>
 
-        <div className="container mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {team.map((member, index) => (
-            <motion.div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300" variants={itemVariants}>
+            <motion.div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300" variants={itemVariants} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: index * 0.1 }} viewport={{ once: true, margin: "-50px" }}>
               <div className="relative">
-                <img src={member.img} alt={member.name} className="w-full h-64 object-cover transition-transform duration-500 hover:scale-105" />
+                <img src={member.img} alt={member.name} className="w-full h-48 sm:h-56 md:h-64 object-cover transition-transform duration-500 hover:scale-105" loading="lazy" decoding="async" />
               </div>
-              <div className="p-4 text-center">
-                <h3 className="text-lg font-semibold">{member.name}</h3>
-                <p className="text-gray-500">{member.role}</p>
+              <div className="p-3 sm:p-4 text-center">
+                <h3 className="text-base sm:text-lg font-semibold leading-tight">{member.name}</h3>
+                <p className="text-gray-500 text-sm sm:text-base">{member.role}</p>
               </div>
             </motion.div>
           ))}

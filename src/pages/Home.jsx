@@ -51,13 +51,13 @@ export default function Home() {
       <div className="hidden lg:block fixed top-0 right-0 h-full w-6 bg-white z-50"></div>
 
       {/* ===== Hero Section ===== */}
-      <HeroHighlight containerClassName="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+      <HeroHighlight containerClassName="px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 xl:py-20">
         {/* العنوان */}
         <motion.h1
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.25, 0.8, 0.25, 1] }}
-          className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl font-extrabold text-blue-700 dark:text-white leading-tight"
+          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-blue-700 dark:text-white leading-tight"
         >
           👋 {t("welcome")}{" "}
           <Highlight className="text-pink-600 dark:text-yellow-300">
@@ -70,7 +70,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 1, ease: "easeOut" }}
-          className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl sm:max-w-3xl lg:max-w-4xl mx-auto px-2 sm:px-4"
+          className="mt-3 sm:mt-4 md:mt-6 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl sm:max-w-3xl lg:max-w-4xl mx-auto px-2 sm:px-4 leading-relaxed"
         >
           {t("description")}
         </motion.p>
@@ -80,7 +80,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="mt-6 sm:mt-8 flex justify-center"
+          className="mt-4 sm:mt-6 md:mt-8 flex justify-center"
         >
           <Link to="/products">
             <motion.button
@@ -91,7 +91,7 @@ export default function Home() {
               }}
               whileTap={{ y: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="px-6 sm:px-8 py-2 sm:py-3 rounded-xl text-base sm:text-lg font-semibold text-white bg-gradient-to-r from-purple-600 via-violet-500 to-pink-500 hover:from-pink-500 hover:via-purple-600 hover:to-violet-500 transition-all duration-300 shadow-lg"
+              className="px-4 sm:px-6 md:px-8 py-2 sm:py-3 rounded-xl text-sm sm:text-base md:text-lg font-semibold text-white bg-gradient-to-r from-purple-600 via-violet-500 to-pink-500 hover:from-pink-500 hover:via-purple-600 hover:to-violet-500 transition-all duration-300 shadow-lg"
             >
               {t("shopNow")}
             </motion.button>
@@ -127,15 +127,15 @@ export default function Home() {
       {/* زر Scroll To Top */}
       <button
         onClick={scrollToTop}
-        className="fixed bottom-6 right-6 w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white shadow-lg flex items-center justify-center z-50 hover:shadow-xl transition-all duration-300"
+        aria-label="Scroll to top"
       >
-        <svg className="absolute w-16 h-16 -rotate-90" width="64" height="64">
+        <svg className="absolute w-12 h-12 sm:w-16 sm:h-16 -rotate-90" width="64" height="64">
           <circle
             cx="32"
             cy="32"
             r={radius}
-            stroke="##8B5CF6
-"
+            stroke="#E5E7EB"
             strokeWidth="4"
             fill="none"
           />
@@ -143,8 +143,7 @@ export default function Home() {
             cx="32"
             cy="32"
             r={radius}
-            stroke="#8B5CF6
-"
+            stroke="#8B5CF6"
             strokeWidth="4"
             fill="none"
             strokeDasharray={circumference}
@@ -152,7 +151,7 @@ export default function Home() {
             strokeLinecap="round"
           />
         </svg>
-        <span className="relative text-2xl text-gray-700">&#8679;</span>
+        <span className="relative text-lg sm:text-2xl text-gray-700">&#8679;</span>
       </button>
     </>
   );

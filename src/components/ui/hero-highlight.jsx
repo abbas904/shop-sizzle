@@ -29,7 +29,7 @@ export const HeroHighlight = ({ children, className, containerClassName }) => {
   return (
     <section
       className={cn(
-        "relative group flex flex-col md:flex-row items-center justify-between w-full px-6 sm:px-8 lg:px-24 py-16 md:py-24 gap-12",
+        "relative group flex flex-col md:flex-row items-center justify-between w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24 py-12 sm:py-16 md:py-20 lg:py-24 gap-8 sm:gap-10 md:gap-12 prevent-layout-shift",
         containerClassName
       )}
       onMouseMove={handleMouseMove}
@@ -45,19 +45,21 @@ export const HeroHighlight = ({ children, className, containerClassName }) => {
       />
 
       {/* Content */}
-      <div className={cn("flex-1 relative z-10 space-y-6 md:space-y-8 text-center md:text-left", className)}>
+      <div className={cn("flex-1 relative z-10 space-y-4 sm:space-y-6 md:space-y-8 text-center md:text-left order-2 md:order-1", className)}>
         {children}
       </div>
 
       {/* Image */}
-      <div className="flex-1 flex justify-center relative z-10">
+      <div className="flex-1 flex justify-center relative z-10 order-1 md:order-2">
         <motion.img
           src={img1}
           alt="Hero"
-          className="object-contain max-w-[550px] w-full h-auto bg-violet-50 rounded-2xl p-4 hover:border-violet-600 hover:shadow-xl transition-all cursor-pointer"
+          className="object-contain max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[550px] w-full h-auto bg-violet-50 rounded-2xl p-3 sm:p-4 hover:border-violet-600 hover:shadow-xl transition-all cursor-pointer"
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
+          loading="lazy"
+          decoding="async"
         />
       </div>
     </section>
