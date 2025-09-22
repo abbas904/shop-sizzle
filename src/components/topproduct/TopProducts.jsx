@@ -46,8 +46,8 @@ export default function TopProducts() {
   const translated = t("topProducts", { returnObjects: true });
 
   return (
-    <div className="w-full py-8 sm:py-12 mt-12">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="w-full py-8 sm:py-12 mt-12 overflow-x-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* العنوان + زر View All */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8 gap-4">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-violet-600 via-purple-500 to-pink-500 bg-clip-text text-transparent drop-shadow-md">
@@ -63,23 +63,30 @@ export default function TopProducts() {
         </div>
 
         {/* Swiper */}
-        <Swiper
-          key={i18n.language} // لإعادة إنشاء Swiper عند تغيير اللغة
-          modules={[Pagination, Autoplay]}
-          spaceBetween={16}
-          slidesPerView={1}
-          pagination={{ el: ".custom-pagination", clickable: true }}
-          autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }}
-          lazy={true}
-          preloadImages={false}
-          breakpoints={{
-            480: { slidesPerView: 1.5, spaceBetween: 16 },
-            640: { slidesPerView: 2, spaceBetween: 20 },
-            768: { slidesPerView: 2.5, spaceBetween: 20 },
-            1024: { slidesPerView: 3, spaceBetween: 24 },
-            1280: { slidesPerView: 4, spaceBetween: 24 },
-          }}
-        >
+        <div className="overflow-hidden">
+          <Swiper
+            key={i18n.language} // لإعادة إنشاء Swiper عند تغيير اللغة
+            modules={[Pagination, Autoplay]}
+            spaceBetween={16}
+            slidesPerView={1}
+            pagination={{ el: ".custom-pagination", clickable: true }}
+            autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+            lazy={true}
+            preloadImages={false}
+            watchOverflow={true}
+            allowTouchMove={true}
+            touchStartPreventDefault={false}
+            breakpoints={{
+              320: { slidesPerView: 1, spaceBetween: 12 },
+              480: { slidesPerView: 1.5, spaceBetween: 16 },
+              640: { slidesPerView: 2, spaceBetween: 20 },
+              768: { slidesPerView: 2.5, spaceBetween: 20 },
+              1024: { slidesPerView: 3, spaceBetween: 24 },
+              1280: { slidesPerView: 4, spaceBetween: 24 },
+              1536: { slidesPerView: 4, spaceBetween: 32 },
+            }}
+            className="swiper-container"
+          >
           {products.map((product) => (
             <SwiperSlide key={`${product.id}-${i18n.language}`}>
               <motion.div
@@ -122,7 +129,8 @@ export default function TopProducts() {
               </motion.div>
             </SwiperSlide>
           ))}
-        </Swiper>
+          </Swiper>
+        </div>
 
         {/* Pagination */}
         <div className="custom-pagination mt-6 flex justify-center"></div>

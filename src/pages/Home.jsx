@@ -45,7 +45,7 @@ export default function Home() {
   // =======================================================
 
   return (
-    <>
+    <div className="overflow-x-hidden">
       {/* الشريطين الجانبيين - مخفيان في الموبايل */}
       <div className="hidden lg:block fixed top-0 left-0 h-full w-6 bg-white z-50"></div>
       <div className="hidden lg:block fixed top-0 right-0 h-full w-6 bg-white z-50"></div>
@@ -159,6 +159,6 @@ export default function Home() {
   <span className="absolute text-lg sm:text-2xl text-gray-700">&#8679;</span>
 </button>
 
-    </>
+    </div>
   );
 }

@@ -31,6 +31,13 @@
   /* تحسين التمرير على الأجهزة المحمولة */
   html {
     -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+  }
+  
+  /* منع التمرير الأفقي للصفحة */
+  body {
+    overflow-x: hidden;
+    position: relative;
   }
 }
 
@@ -125,6 +132,53 @@
   
   .brands-swiper .swiper-slide {
     height: auto;
+  }
+  
+  /* تحسين Swiper العام */
+  .swiper-container {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+  }
+  
+  .swiper-container .swiper-wrapper {
+    display: flex;
+    align-items: stretch;
+  }
+  
+  .swiper-container .swiper-slide {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* منع حركة الصفحة عند التمرير الأفقي */
+  .swiper-container {
+    touch-action: pan-y;
+  }
+  
+  /* تحسين الاستجابة */
+  @media (max-width: 640px) {
+    .swiper-container {
+      padding: 0 1rem;
+      margin: 0 -1rem;
+    }
+  }
+  
+  /* تحسينات إضافية للاستجابة */
+  @media (max-width: 480px) {
+    .swiper-container {
+      padding: 0 0.5rem;
+      margin: 0 -0.5rem;
+    }
+  }
+  
+  /* تحسين للشاشات الكبيرة */
+  @media (min-width: 1536px) {
+    .swiper-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
   }
   
   /* تحسين التخطيط */
