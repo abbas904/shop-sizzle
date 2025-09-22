@@ -234,50 +234,42 @@ function Products() {
                       </div>
 
                       {/* Buttons */}
-                      <div className="mt-auto grid grid-cols-2 gap-2">
-                        <motion.button
-                          className="w-full bg-violet-600 text-white px-2 sm:px-4 py-2 rounded-lg hover:bg-violet-700 transition-colors flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm"
-                          whileTap={{ scale: 0.95 }}
-                          onClick={() => handleAddToCart(product)}
-                        >
-                          <i className="fa-solid fa-cart-shopping"></i>
-                          <span className="hidden sm:inline">{t("topProducts.addToCart")}</span>
-                          <span className="sm:hidden">{t("topProducts.addToCart")}</span>
-                        </motion.button>
+                      <div className="mt-auto grid grid-cols-1 sm:grid-cols-2 gap-2 w-full">
+  {/* Add to Cart */}
+  <motion.button
+    className="w-full bg-violet-600 text-white px-3 py-2 rounded-lg hover:bg-violet-700 transition-colors flex items-center justify-center gap-2 text-sm sm:text-base"
+    whileTap={{ scale: 0.95 }}
+    onClick={() => handleAddToCart(product)}
+  >
+    <i className="fa-solid fa-cart-shopping"></i>
+    <span className="truncate">{t("topProducts.addToCart")}</span>
+  </motion.button>
 
-                        <motion.button
-                          onClick={() => {
-                            toggleWishlist(product);
-                            if (isInWishlist(product.id)) {
-                              toast.success(
-                                `${product.title} ${t("topProducts.wishlistRemoved")}`,
-                                { duration: 2000 }
-                              );
-                            } else {
-                              toast.success(
-                                `${product.title} ${t("topProducts.wishlistAdded")}`,
-                                { duration: 2000 }
-                              );
-                            }
-                          }}
-                          className={`w-full px-2 sm:px-4 py-2 rounded-lg border flex items-center justify-center gap-1 sm:gap-2 transition-colors text-xs sm:text-sm ${
-                            isInWishlist(product.id)
-                              ? "border-rose-600 text-rose-600 bg-rose-50 hover:bg-rose-100"
-                              : "border-gray-300 text-gray-700 hover:bg-gray-100"
-                          }`}
-                          whileTap={{ scale: 0.95 }}
-                          aria-label="Toggle wishlist"
-                        >
-                          <i
-                            className={`fa-solid fa-heart ${
-                              isInWishlist(product.id) ? "text-rose-600" : "text-gray-400"
-                            }`}
-                          ></i>
-                          <span className="hidden sm:inline">
-                            {isInWishlist(product.id) ? t("topProducts.wishlisted") : t("topProducts.wishlist")}
-                          </span>
-                        </motion.button>
-                      </div>
+  {/* Wishlist */}
+  <motion.button
+    onClick={() => {
+      toggleWishlist(product);
+      if (isInWishlist(product.id)) {
+        toast.success(`${product.title} ${t("topProducts.wishlistRemoved")}`, { duration: 2000 });
+      } else {
+        toast.success(`${product.title} ${t("topProducts.wishlistAdded")}`, { duration: 2000 });
+      }
+    }}
+    className={`w-full px-3 py-2 rounded-lg border flex items-center justify-center gap-2 text-sm sm:text-base transition-colors ${
+      isInWishlist(product.id)
+        ? "border-rose-600 text-rose-600 bg-rose-50 hover:bg-rose-100"
+        : "border-gray-300 text-gray-700 hover:bg-gray-100"
+    }`}
+    whileTap={{ scale: 0.95 }}
+    aria-label="Toggle wishlist"
+  >
+    <i className={`fa-solid fa-heart ${isInWishlist(product.id) ? "text-rose-600" : "text-gray-400"}`}></i>
+    <span className="truncate">
+      {isInWishlist(product.id) ? t("topProducts.wishlisted") : t("topProducts.wishlist")}
+    </span>
+  </motion.button>
+</div>
+
                     </div>
                   </motion.div>
                 );

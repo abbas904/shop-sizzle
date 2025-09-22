@@ -126,33 +126,39 @@ export default function Home() {
 
       {/* زر Scroll To Top */}
       <button
-        onClick={scrollToTop}
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white shadow-lg flex items-center justify-center z-50 hover:shadow-xl transition-all duration-300"
-        aria-label="Scroll to top"
-      >
-        <svg className="absolute w-12 h-12 sm:w-16 sm:h-16 -rotate-90" width="64" height="64">
-          <circle
-            cx="32"
-            cy="32"
-            r={radius}
-            stroke="#E5E7EB"
-            strokeWidth="4"
-            fill="none"
-          />
-          <circle
-            cx="32"
-            cy="32"
-            r={radius}
-            stroke="#8B5CF6"
-            strokeWidth="4"
-            fill="none"
-            strokeDasharray={circumference}
-            strokeDashoffset={offset}
-            strokeLinecap="round"
-          />
-        </svg>
-        <span className="relative text-lg sm:text-2xl text-gray-700">&#8679;</span>
-      </button>
+  onClick={scrollToTop}
+  className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white shadow-lg flex items-center justify-center z-50 hover:shadow-xl transition-all duration-300"
+  aria-label="Scroll to top"
+>
+  <svg
+    className="w-10 h-10 sm:w-14 sm:h-14"
+    viewBox="0 0 64 64"
+    fill="none"
+  >
+    <circle
+      cx="32"
+      cy="32"
+      r={radius}
+      stroke="#E5E7EB"
+      strokeWidth="4"
+      fill="none"
+    />
+    <circle
+      cx="32"
+      cy="32"
+      r={radius}
+      stroke="#8B5CF6"
+      strokeWidth="4"
+      fill="none"
+      strokeDasharray={circumference}
+      strokeDashoffset={offset}
+      strokeLinecap="round"
+    />
+  </svg>
+
+  <span className="absolute text-lg sm:text-2xl text-gray-700">&#8679;</span>
+</button>
+
     </>
   );
 }

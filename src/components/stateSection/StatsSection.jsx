@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
 import { UserGroupIcon, CubeIcon, CheckCircleIcon, TrophyIcon, ClockIcon, TruckIcon, PhoneIcon } from "@heroicons/react/24/solid";
-import heroImage from "../../assets/e-commerce assets/hero sec/HeroImage-2.png";
 import { SparklesIcon } from "@heroicons/react/24/solid";
+import heroImage from "../../assets/e-commerce assets/hero sec/HeroImage-2.png";
 import { useTranslation } from "react-i18next";
 
 export default function StatsSection() {
@@ -33,8 +33,8 @@ export default function StatsSection() {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <section className="relative bg-gray-100 py-8 sm:py-12 lg:py-16 mt-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative" ref={ref}>
+    <section className="relative bg-gray-100 py-20 sm:py-28 lg:py-32 mt-20" ref={ref}>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
 
         {/* Section Title */}
         <div className="text-center mt-8 sm:mt-12 relative">
@@ -58,10 +58,10 @@ export default function StatsSection() {
         </div>
 
         {/* Stats + Hero Image */}
-        <div className="flex flex-col lg:flex-row items-start justify-between gap-8 sm:gap-12 relative">
-          
+        <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8 sm:gap-12 relative">
+
           {/* Stats Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full lg:flex-1 align-center mt-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full lg:flex-1 mt-10 justify-items-center">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
@@ -69,7 +69,7 @@ export default function StatsSection() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 whileHover={{ scale: 1.05, boxShadow: "0px 15px 25px rgba(0,0,0,0.2)" }}
-                className="flex flex-col items-center p-4 sm:p-6 bg-white rounded-2xl shadow-lg w-full hover:shadow-2xl transition-all"
+                className="flex flex-col items-center p-4 sm:p-6 bg-white rounded-2xl shadow-lg w-full max-w-[220px] hover:shadow-2xl transition-all"
               >
                 <div className="scale-75 sm:scale-100">{stat.icon}</div>
                 <Counter value={stat.value} start={isInView} />
@@ -83,36 +83,36 @@ export default function StatsSection() {
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 1 }}
-            className="relative lg:flex-1 flex justify-start lg:ml-8 mt-6 lg:mt-0"
+            className="relative lg:flex-1 flex justify-center mt-6 lg:mt-0 w-full"
           >
             <img
               src={heroImage}
               alt="Hero"
-              className="w-[200px] sm:w-[250px] md:w-[300px] lg:w-[400px] xl:w-[500px] object-contain"
+              className="w-full max-w-[250px] sm:max-w-[300px] md:max-w-[400px] lg:max-w-[500px] object-contain"
               loading="lazy"
               decoding="async"
             />
-
-            {/* Overlay Info */}
-            <div className="absolute -bottom-16 sm:-bottom-20 right-0 bg-white/10 backdrop-blur-2xl rounded-xl shadow-lg px-4 sm:px-6 lg:px-10 py-3 sm:py-5 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-6 z-20 max-w-full">
-              <div className="flex flex-col items-center text-center">
-                <ClockIcon className="w-6 h-6 sm:w-8 sm:h-8 text-purple-500 mb-1" />
-                <span className="font-semibold text-gray-700 text-xs sm:text-sm">{t("stats.workingHours")}</span>
-                <span className="text-gray-600 text-xs">{t("stats.workingHoursTime")}</span>
-              </div>
-              <div className="flex flex-col items-center text-center">
-                <TruckIcon className="w-6 h-6 sm:w-8 sm:h-8 text-purple-500 mb-1" />
-                <span className="font-semibold text-gray-700 text-xs sm:text-sm">{t("stats.fastDelivery")}</span>
-                <span className="text-gray-600 text-xs">{t("stats.fastDeliveryTime")}</span>
-              </div>
-              <div className="flex flex-col items-center text-center">
-                <PhoneIcon className="w-6 h-6 sm:w-8 sm:h-8 text-purple-500 mb-1" />
-                <span className="font-semibold text-gray-700 text-xs sm:text-sm">{t("stats.contactUs")}</span>
-                <span className="text-gray-600 text-xs">{t("stats.phone")}</span>
-              </div>
-            </div>
           </motion.div>
+        </div>
 
+        {/* Overlay Info fixed at bottom of Section */}
+        <div className="absolute left-1/2 transform -translate-x-1/2 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-6 bg-white/10 backdrop-blur-2xl rounded-xl shadow-lg px-4 sm:px-6 lg:px-10 py-3 sm:py-5 w-full max-w-[600px]"
+        style={{ bottom: "-170px" }} >
+          <div className="flex flex-col items-center text-center">
+            <ClockIcon className="w-6 h-6 sm:w-8 sm:h-8 text-purple-500 mb-1" />
+            <span className="font-semibold text-gray-700 text-xs sm:text-sm">{t("stats.workingHours")}</span>
+            <span className="text-gray-600 text-xs">{t("stats.workingHoursTime")}</span>
+          </div>
+          <div className="flex flex-col items-center text-center">
+            <TruckIcon className="w-6 h-6 sm:w-8 sm:h-8 text-purple-500 mb-1" />
+            <span className="font-semibold text-gray-700 text-xs sm:text-sm">{t("stats.fastDelivery")}</span>
+            <span className="text-gray-600 text-xs">{t("stats.fastDeliveryTime")}</span>
+          </div>
+          <div className="flex flex-col items-center text-center">
+            <PhoneIcon className="w-6 h-6 sm:w-8 sm:h-8 text-purple-500 mb-1" />
+            <span className="font-semibold text-gray-700 text-xs sm:text-sm">{t("stats.contactUs")}</span>
+            <span className="text-gray-600 text-xs">{t("stats.phone")}</span>
+          </div>
         </div>
       </div>
     </section>

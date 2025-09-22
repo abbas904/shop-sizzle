@@ -17,9 +17,9 @@ import mem4 from "../assets/e-commerce assets/about us/our team/team-4.jpg";
 export default function About() {
   const { t, i18n } = useTranslation();
   const swiperRef = useRef(null);
+  const isRTL = i18n.language === "ar";
 
   useEffect(() => {
-    // تحديث السلايدر عند تغيير اللغة
     if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.update();
     }
@@ -77,7 +77,7 @@ export default function About() {
             ].map((value, index) => (
               <motion.div key={index} className="bg-white p-4 sm:p-6 rounded-md shadow-md text-center hover:shadow-lg transition duration-300 ease-in-out" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }} viewport={{ once: true, margin: "-50px" }}>
                 <div className={`p-3 rounded-full w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center mb-3 sm:mb-4 mx-auto ${value.color === "blue" ? "bg-blue-100" : value.color === "green" ? "bg-green-100" : value.color === "yellow" ? "bg-yellow-100" : "bg-purple-100"}`}>
-                  <div className="scale-75 sm:scale-100">{value.icon}</div>
+                  <div>{value.icon}</div>
                 </div>
                 <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 leading-tight">{t(value.titleKey)}</h3>
                 <p className="text-gray-600 text-xs sm:text-sm md:text-base leading-relaxed">{t(value.descKey)}</p>
@@ -93,19 +93,19 @@ export default function About() {
           <motion.h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold bg-gradient-to-r from-violet-600 to-pink-500 bg-clip-text text-transparent leading-tight" variants={itemVariants}>{t("about.advantages.title")}</motion.h2>
           <motion.p className="text-black mt-3 sm:mt-4 md:mt-6 text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto text-center leading-relaxed px-2" variants={itemVariants}>
             {t("about.advantages.description")}
-            <motion.span className="inline-block ml-1" initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: [0.9, 1.2, 1], opacity: 1 }} transition={{ duration: 1.4, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }}>
+            <motion.span className="inline-block ml-1" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.4, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }}>
               <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-pink-500" />
             </motion.span>
           </motion.p>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
-          <motion.div initial={{ opacity: 0, scale: 0.9, y: 40 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true, margin: "-100px" }} className="flex justify-center order-2 lg:order-1">
-            <motion.img src={demoImg} alt="Website Preview" className="rounded-2xl bg-white shadow-2xl object-contain w-full sm:w-4/5 lg:w-full max-h-[300px] sm:max-h-[400px] md:max-h-[500px] lg:max-h-[600px] xl:max-h-[700px]" initial={{ scaleX: -1 }} animate={{ y: [0, -20, 0], scaleX: -1 }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} />
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true, margin: "-100px" }} className="flex justify-center order-2 lg:order-1">
+            <motion.img src={demoImg} alt="Website Preview" className="rounded-2xl bg-white shadow-2xl object-contain w-full sm:w-4/5 lg:w-full max-h-[300px] sm:max-h-[400px] md:max-h-[500px] lg:max-h-[600px] xl:max-h-[700px]" animate={{ y: [0, -20, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} />
           </motion.div>
 
           <motion.div className="flex flex-col gap-6 sm:gap-8 order-1 lg:order-2">
-            <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.9, ease: "easeOut" }} viewport={{ once: true, margin: "-50px" }} className="rounded-xl overflow-hidden shadow-lg border-2 border-violet-200 hover:scale-105 transition-transform duration-500">
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.9, ease: "easeOut" }} viewport={{ once: true, margin: "-50px" }} className="rounded-xl overflow-hidden shadow-lg border-2 border-violet-200 hover:scale-105 transition-transform duration-500">
               <video src={demoVideo} autoPlay loop muted playsInline className="w-full h-[180px] sm:h-[220px] md:h-[280px] lg:h-[320px] object-cover" />
             </motion.div>
 
@@ -124,15 +124,39 @@ export default function About() {
       </motion.section>
 
       {/* ===== Brands ===== */}
-      <motion.section className="py-12 sm:py-16 lg:py-20 mt-12 sm:mt-16 lg:mt-20 prevent-layout-shift" initial="hidden" whileInView="visible" variants={listVariants} viewport={{ once: true, margin: "-100px" }}>
+      <motion.section
+        className="py-12 sm:py-16 lg:py-20 mt-12 sm:mt-16 lg:mt-20 prevent-layout-shift"
+        initial="hidden"
+        whileInView="visible"
+        variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.2 } } }}
+        viewport={{ once: true, margin: "-50px" }}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center">
+          {/* Title & Subtitle */}
           <motion.div className="text-center mb-8 sm:mb-12">
-            <motion.h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-violet-600 to-pink-500 bg-clip-text text-transparent relative inline-block leading-tight" initial={{ opacity: 0, y: 30, scale: 0.9 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.8, ease: "easeOut" }} viewport={{ once: true, margin: "-50px" }}>
-              {t("about.brands.title")}
+            <motion.h2
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold relative inline-block leading-tight bg-gradient-to-r from-violet-600 to-pink-500 bg-clip-text text-transparent"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-50px" }}
+            >
+              <span className={isRTL ? "rtl text-right block" : "ltr text-left block"}>
+                {t("about.brands.title")}
+              </span>
             </motion.h2>
-            <motion.p className="text-gray-600 max-w-2xl mx-auto mt-3 sm:mt-4 text-sm sm:text-base md:text-lg lg:text-xl px-4">{t("about.brands.subtitle")}</motion.p>
+
+            <motion.p
+              className={`text-gray-600 max-w-2xl mx-auto mt-3 sm:mt-4 text-sm sm:text-base md:text-lg lg:text-xl px-4 ${isRTL ? "rtl text-right" : "ltr text-left"}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              {t("about.brands.subtitle")}
+            </motion.p>
           </motion.div>
 
+          {/* Swiper Brands */}
           <div className="relative">
             <Swiper
               ref={swiperRef}
@@ -140,29 +164,35 @@ export default function About() {
               spaceBetween={20}
               slidesPerView={1}
               loop={true}
-              autoplay={{ delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true }}
-              breakpoints={{ 
-                480: { slidesPerView: 1.5, spaceBetween: 20 },
-                640: { slidesPerView: 2, spaceBetween: 30 }, 
-                768: { slidesPerView: 3, spaceBetween: 30 }, 
-                1024: { slidesPerView: 4, spaceBetween: 40 },
-                1280: { slidesPerView: 5, spaceBetween: 40 }
+              autoplay={{
+                delay: 2000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+                reverseDirection: isRTL,
               }}
+              breakpoints={{
+                480: { slidesPerView: 1.5, spaceBetween: 20 },
+                640: { slidesPerView: 2, spaceBetween: 30 },
+                768: { slidesPerView: 3, spaceBetween: 30 },
+                1024: { slidesPerView: 4, spaceBetween: 40 },
+                1280: { slidesPerView: 5, spaceBetween: 40 },
+              }}
+              dir={isRTL ? "rtl" : "ltr"}
               className="brands-swiper"
             >
               {brands.map((brand, index) => (
                 <SwiperSlide key={index}>
-                  <motion.div 
-                    className="flex justify-center items-center p-3 sm:p-4 bg-white rounded-lg shadow-lg border-2 border-violet-50 hover:shadow-xl transition-all duration-300 h-32 sm:h-36 md:h-40" 
-                    initial={{ opacity: 0.8, y: 20 }} 
-                    whileInView={{ opacity: 1, y: 0 }} 
-                    transition={{ duration: 0.4, delay: index * 0.1 }} 
+                  <motion.div
+                    className="flex justify-center items-center p-3 sm:p-4 bg-white rounded-lg shadow-xl border-2 border-violet-50 h-32 sm:h-36 md:h-40 hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
                     viewport={{ once: true, margin: "-50px" }}
                   >
-                    <img 
-                      src={brand.src} 
-                      alt={brand.alt} 
-                      className="w-full h-full object-contain max-h-24 sm:max-h-28 md:max-h-32" 
+                    <img
+                      src={brand.src}
+                      alt={brand.alt}
+                      className="w-full h-full object-contain max-h-24 sm:max-h-28 md:max-h-32"
                       loading="lazy"
                       decoding="async"
                     />

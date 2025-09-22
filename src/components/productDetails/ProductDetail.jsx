@@ -10,7 +10,6 @@ function ProductDetail() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [suggestedProducts, setSuggestedProducts] = useState([]);
-  // لم نعد نستخدم حالة محلية للمفضلة؛ نستند إلى WishlistContext
   const [quantity, setQuantity] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -54,10 +53,7 @@ function ProductDetail() {
     return (
       <div className="min-h-screen container mx-auto px-4 py-8">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Skeleton for product image */}
           <Skeleton className="w-full h-96" />
-
-          {/* Skeleton for product details */}
           <div className="flex flex-col justify-between space-y-6">
             <div className="space-y-4">
               <Skeleton className="w-3/4 h-8" />
@@ -71,8 +67,6 @@ function ProductDetail() {
             </div>
           </div>
         </div>
-
-        {/* Skeleton for suggested products */}
         <div className="mt-16">
           <Skeleton className="w-1/3 h-8 mb-6" />
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
@@ -89,16 +83,16 @@ function ProductDetail() {
     <div className="min-h-screen bg-violet-50">
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-md p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* صورة المنتج */}
+          {/* Product Image */}
           <div className="relative">
             <img
               src={product.images[0]}
               alt={product.title}
-              className="w-full h-96 object-contain rounded-lg"
+              className="w-full h-96 sm:h-[28rem] md:h-96 object-contain rounded-lg"
             />
             <button
               onClick={() => product && toggleWishlist(product)}
-              className="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center"
+              className="absolute top-4 right-4 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white shadow flex items-center justify-center hover:scale-105 transition-transform"
               aria-label="Toggle wishlist"
             >
               <svg
@@ -107,28 +101,24 @@ function ProductDetail() {
                 fill={product && isInWishlist(product.id) ? "red" : "none"}
                 stroke="currentColor"
                 strokeWidth="2"
-                className="w-6 h-6"
+                className="w-6 h-6 sm:w-7 sm:h-7"
               >
                 <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
               </svg>
             </button>
           </div>
 
-          {/* تفاصيل المنتج */}
+          {/* Product Details */}
           <div className="flex flex-col justify-between space-y-6">
             <div>
-              <h1 className="text-3xl font-bold">{product.title}</h1>
-              <p className="mt-2 text-gray-600">{product.description}</p>
+              <h1 className="text-3xl sm:text-4xl font-bold truncate">{product.title}</h1>
+              <p className="mt-2 text-gray-600 line-clamp-3">{product.description}</p>
               <div className="flex items-center mt-2 gap-2">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <svg
                     key={i}
                     xmlns="http://www.w3.org/2000/svg"
-                    className={`w-5 h-5 ${
-                      i < Math.round(product.rating)
-                        ? "text-yellow-400 fill-current"
-                        : "text-gray-300"
-                    }`}
+                    className={`w-5 h-5 ${i < Math.round(product.rating) ? "text-yellow-400 fill-current" : "text-gray-300"}`}
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -142,7 +132,9 @@ function ProductDetail() {
               <p className="text-2xl font-bold mt-4">${product.price}</p>
             </div>
 
-            <div className="flex items-center gap-4 mt-4">
+            {/* Quantity + Add to Cart + Wishlist */}
+            <div className="flex flex-col sm:flex-row items-center gap-4 mt-4 w-full">
+              {/* Quantity */}
               <div className="flex border rounded-lg overflow-hidden">
                 <button
                   onClick={() => setQuantity((prev) => Math.max(prev - 1, 1))}
@@ -161,30 +153,46 @@ function ProductDetail() {
                 </button>
               </div>
 
+              {/* Add to Cart */}
               <button
                 onClick={handleAddToCart}
-                className="flex-1 bg-violet-600 text-white px-6 py-3 rounded-lg hover:bg-violet-700 transition-colors"
+                className="flex-1 bg-violet-600 text-white px-6 py-3 rounded-lg hover:bg-violet-700 transition-colors w-full sm:w-auto text-center"
               >
                 🛒 Add to Cart
+              </button>
+
+              {/* Wishlist */}
+              <button
+                onClick={() => product && toggleWishlist(product)}
+                className={`flex items-center justify-center px-4 py-3 rounded-lg border ${
+                  product && isInWishlist(product.id)
+                    ? "border-rose-600 text-rose-600 bg-rose-50 hover:bg-rose-100"
+                    : "border-gray-300 text-gray-700 hover:bg-gray-100"
+                } w-full sm:w-auto`}
+              >
+                <i className={`fa-solid fa-heart ${product && isInWishlist(product.id) ? "text-rose-600" : "text-gray-400"}`}></i>
+                <span className="ml-2 truncate">
+                  {product && isInWishlist(product.id) ? "Wishlisted" : "Add to Wishlist"}
+                </span>
               </button>
             </div>
           </div>
         </div>
 
-        {/* Suggested products section */}
+        {/* Suggested Products */}
         {suggestedProducts.length > 0 && (
           <div className="mt-16">
             <h2 className="text-2xl font-bold mb-6">You Might Also Like</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
               {suggestedProducts.map((p) => (
                 <Link key={p.id} to={`/products/${p.id}`}>
-                  <div className="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow">
+                  <div className="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow flex flex-col">
                     <img
                       src={p.images[0]}
                       alt={p.title}
-                      className="w-full h-48 object-contain rounded-lg"
+                      className="w-full h-40 sm:h-48 object-contain rounded-lg"
                     />
-                    <h3 className="mt-2 font-semibold">{p.title}</h3>
+                    <h3 className="mt-2 font-semibold truncate">{p.title}</h3>
                     <p className="text-gray-600 mt-1">${p.price}</p>
                   </div>
                 </Link>
